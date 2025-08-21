@@ -1,7 +1,4 @@
-from flask_sqlalchemy import SQLAlchemy
-from flask import Blueprint, request, jsonify
 from Extras import db
-import werkzeug.security
 
 class Watchlist(db.db.Model):
     id = db.db.Column(db.db.Integer, primary_key=True)
