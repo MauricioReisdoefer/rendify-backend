@@ -13,8 +13,11 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.db.init_app(app)
 
+from flask_cors import CORS
+CORS(app)
+
 with app.app_context():
     db.db.create_all()
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
