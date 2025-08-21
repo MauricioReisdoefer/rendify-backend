@@ -16,6 +16,7 @@ db.db.init_app(app)
 from flask_cors import CORS
 CORS(app)
 
+
 with app.app_context():
     db.db.create_all()
 
