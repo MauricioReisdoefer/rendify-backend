@@ -65,10 +65,10 @@ def get_user_by_name(nome):
 
 def change_balance():
     data = request.get_json()
-    name = data.get('name')
+    id = data.get('id')
     new_balance = data.get('new_balance')
 
-    user = UserModel.User.query.filter_by(name=name).first()
+    user = UserModel.User.query.filter_by(id=id).first()
     if not user:
         return jsonify({"Message": "User not found", "Status": 404, "Result": "Error"})
 
