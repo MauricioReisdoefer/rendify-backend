@@ -2,7 +2,7 @@ import pytest
 from flask import Flask
 from Extras.db import db
 from Models.user_model import UserModel
-
+from Models.watchlist_model import WatchlistModel
 
 @pytest.fixture
 def app():
