@@ -1,2 +1,0 @@
-## Rendify Backend - Models ##
-

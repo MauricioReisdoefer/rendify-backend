@@ -1,12 +1,12 @@
 from Routes import user_route
 from flask import Flask
 from Extras import db
-from Routes import user_route, stock_routes, watchlist_routes
+# from Routes import user_route, stock_routes, watchlist_routes
 
 app = Flask(__name__)
-app.register_blueprint(user_route.user_bp, url_prefix='/user')
-app.register_blueprint(stock_routes.stock_bp, url_prefix='/stock')
-app.register_blueprint(watchlist_routes.watchlist_bp, url_prefix='/watch')
+# app.register_blueprint(user_route.user_bp, url_prefix='/user')
+# app.register_blueprint(stock_routes.stock_bp, url_prefix='/stock')
+# app.register_blueprint(watchlist_routes.watchlist_bp, url_prefix='/watch')
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'  
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
