@@ -3,6 +3,7 @@ from flask import Flask
 from Extras.db import db
 from Models.user_model import UserModel
 from Models.watchlist_model import WatchlistModel
+from Models.simulator_model import SimulatorModel
 
 @pytest.fixture
 def app():

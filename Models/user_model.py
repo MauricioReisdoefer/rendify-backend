@@ -11,6 +11,7 @@ class UserModel(db.Model):
     balance = db.Column(db.Float, default=0.0)
     
     watchlists = db.relationship("WatchlistModel", back_populates="user", cascade="all, delete")
+    simulators = db.relationship("SimulatorModel", back_populates="user", cascade="all, delete")
 
     def __init__(self, name, password, balance=0.0):
         self.name = name
