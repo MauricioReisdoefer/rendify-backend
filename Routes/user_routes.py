@@ -8,6 +8,6 @@ user_bp.route("/register", methods=["POST"])(register)
 user_bp.route("/login", methods=["POST"])(login)
 
 # Rotas protegidas por JWT
-user_bp.route("/me", methods=["GET"])(view_me)
-user_bp.route("/me", methods=["PUT"])(update_me)
-user_bp.route("/me", methods=["DELETE"])(delete_me)
+user_bp.route("/viewme", methods=["GET"])(view_me)
+user_bp.route("/updateme", methods=["PUT"])(update_me)
+user_bp.route("/deleteme", methods=["DELETE"])(delete_me)
