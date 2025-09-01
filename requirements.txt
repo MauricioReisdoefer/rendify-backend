@@ -3,3 +3,6 @@ flask-sqlalchemy
 pytest
 werkzeug
 dotenv
+flask_jwt_extended
+twelvedata
+flask_cors
