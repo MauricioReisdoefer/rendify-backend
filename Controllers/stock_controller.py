@@ -37,7 +37,30 @@ def update_stock_price():
     return jsonify(stock.json()), 200  
 
 def get_stock(symbol):
-    stock = StockModel.query.filter_by(symbol=symbol.upper()).first()
+    ts = td.price(symbol=symbol.upper()).as_json()
+    price = float(ts["price"])
+    stock = StockModel(symbol=symbol, exchange="NASDAQ", currency="USD", price=price)
+    
+    stockindb = StockModel.query.filter_by(symbol=symbol.upper()).first()
+    if stockindb:
+        stockindb.price = price
+        stockindb.exchange = "NASDAQ"
+        stockindb.currency = "USD"
+    else:
+        stockindb = stock
+    
+    db.session.add(stockindb)
+    db.session.commit()
     if not stock:
         return jsonify({"error": "Stock not found"}), 404
     return jsonify(stock.json()), 200
+
+def get_graphic(symbol, ammount):
+    ts = td.time_series(
+        symbol=f"{symbol}",
+        interval="1h",
+        outputsize=ammount
+    )
+    
+    print(ts.as_json())
+    return jsonify(ts.as_json())
