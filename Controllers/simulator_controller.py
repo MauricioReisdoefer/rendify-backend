@@ -14,7 +14,7 @@ def add_or_update_simulator():
     currency = data.get("currency", "USD")
     ammount = data.get("ammount", 0)
 
-    if not symbol or not exchange or ammount <= 0:
+    if not symbol or not exchange or not ammount:
         return jsonify({"error": "Symbol, exchange and positive ammount are required"}), 400
 
     user = UserModel.query.get(user_id)
