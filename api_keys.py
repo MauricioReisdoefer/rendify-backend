@@ -10,6 +10,7 @@ API_KEYS = [
     os.getenv("TWELVEDATA_API_KEY5"),
     os.getenv("TWELVEDATA_API_KEY6"),
     os.getenv("TWELVEDATA_API_KEY7"),
+    os.getenv("TWELVEDATA_API_KEY8")
 ]
 
 API_KEYS = [k for k in API_KEYS if k]

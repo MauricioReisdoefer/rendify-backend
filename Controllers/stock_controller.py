@@ -71,7 +71,7 @@ def get_graphic(symbol, ammount):
     except Exception as e:
         return jsonify({"error": str(e)}), 400
 
-def get_bussines(symbol):
+def get_company(symbol):
     td = get_td_client()
 
     try:
