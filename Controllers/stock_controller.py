@@ -64,7 +64,7 @@ def get_graphic(symbol, ammount):
     try:
         ts = td.time_series(
             symbol=symbol,
-            interval="30min",
+            interval="1h",
             outputsize=ammount
         )
         return jsonify(ts.as_json())

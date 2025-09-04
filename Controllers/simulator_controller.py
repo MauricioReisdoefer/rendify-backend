@@ -111,3 +111,16 @@ def sell_or_update_simulator():
 
     db.session.commit()
     return jsonify({sim.json}), 200
+
+@jwt_required()
+def restart():
+    user_id = get_jwt_identity()
+    
+    user = UserModel.query.get(user_id)
+    if not user:
+        return jsonify({"error": "User not found"}), 404
+    
+    SimulatorModel.query.filter_by(user_id=user_id).delete() 
+    user.balance = 1000
+    db.session.commit()
+    return jsonify({"message": "Simulator reset successfully"}), 200
