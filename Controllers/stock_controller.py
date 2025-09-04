@@ -70,3 +70,15 @@ def get_graphic(symbol, ammount):
         return jsonify(ts.as_json())
     except Exception as e:
         return jsonify({"error": str(e)}), 400
+
+def get_bussines(symbol):
+    td = get_td_client()
+
+    try:
+        profile = td.company_profile(symbol=symbol.upper()).as_json()
+        company_name = profile.get("name")
+        if not company_name:
+            return jsonify({"error": "Company name not found"}), 404
+        return jsonify({"symbol": symbol.upper(), "company_name": company_name}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 400
