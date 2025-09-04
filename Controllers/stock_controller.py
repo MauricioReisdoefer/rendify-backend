@@ -58,9 +58,7 @@ def get_stock(symbol):
 def get_graphic(symbol, ammount):
     ts = td.time_series(
         symbol=f"{symbol}",
-        interval="1h",
+        interval="30min",
         outputsize=ammount
     )
-    
-    print(ts.as_json())
     return jsonify(ts.as_json())
