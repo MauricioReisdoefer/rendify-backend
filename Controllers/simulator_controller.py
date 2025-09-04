@@ -46,7 +46,9 @@ def add_or_update_simulator():
             ammount=ammount
         )
         db.session.add(sim)
-
+    
+    user.balance -= price * ammount
+    
     db.session.commit()
     return jsonify(sim.json()), 200
 
